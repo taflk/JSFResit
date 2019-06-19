@@ -1,0 +1,23 @@
+.header {
+  height: 100vh;
+}
+
+.navigation {
+  text-align: center;
+  background-color: lightblue;
+
+  &__list {
+    display: inline-block;
+    margin: 10px 0 ;
+    list-style-type: none;
+    padding-left: 0;
+
+    &--item {
+      display: inline;
+    }
+
+    &--link {
+      padding: 10px 15px;
+    }
+  }
+}
