@@ -1,9 +1,16 @@
+<section class="[ search ]">
+  <form (keyup)="keyPress($event)">
+    <input #pokemonSearch type="text" Placeholder="Search for pokemon" class="[ search__input ]" >
+    <button type="submit" class="[ search__button ]" (click)="showCards(pokemonSearch.value)">Go</button>
+  </form>
+</section>
+
 <div class="[ container ]">
   <div class="[ row ]">
-    <div *ngFor="let pokemon of pokemons" class="[ col-lg-4 ]">
+    <div *ngFor="let pokemon of pokemonCards" class="[ col-lg-4 ]">
       <div class="[ pokemoncards ]">
         <img src="{{ pokemon.imageUrl }}" class="[ pokemoncards__img ]"><br>
-        <button class="[ pokemoncards__button ]">More info</button>
+        <button class="[ pokemoncards__button ]" (click)="specificCard(pokemon.id)">More info</button>
       </div>
     </div>
   </div>

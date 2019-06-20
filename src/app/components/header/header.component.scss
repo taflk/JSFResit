@@ -1,17 +1,5 @@
 .header {
-  position: relative;
-  height: 50vh;
-  // background-color: lightsalmon;
-
-  
-}
-
-.text {
-    
-  img {
-    width: 100%;
-    z-index: -99;
-  }
+  margin-bottom: 20px;
 }
 
 .navigation {
@@ -34,22 +22,11 @@
   }
 }
 
-.text {
+.logo {
   text-align: center;
   margin-top: 50px;
-}
 
-.search {
-  position: absolute;
-  bottom: 50px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  
-  &__input {
-    height: 40px;
-    width: 200px;
-    padding-left: 10px;
-    border: none;
+  img {
+    width: 300px;
   }
 }
