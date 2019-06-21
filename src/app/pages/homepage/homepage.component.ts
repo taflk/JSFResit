@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchapiService } from '../../services/fetchapi.service';
+import { SharedataService } from '../../services/sharedata.service';
 
 @Component({
   selector: 'app-homepage',
@@ -12,8 +13,9 @@ export class HomepageComponent implements OnInit {
   specificUrl: string;
   pokemonCards: Array<any>;
   filteredCards: Array<any>;
+  message: string;
 
-  constructor(private fetchApiService: FetchapiService) { }
+  constructor(private fetchApiService: FetchapiService, private sharedata: SharedataService) { }
 
   ngOnInit() {
     this.fetchApiService.getPokemons(this.apiUrl)
@@ -21,6 +23,8 @@ export class HomepageComponent implements OnInit {
         this.pokemonCards = data.cards;
         this.filteredCards = data.cards;
       });
+
+    this.sharedata.currentMessage.subscribe(message => this.message = message)
   }
 
   keyPress(event: any) {
@@ -40,6 +44,7 @@ export class HomepageComponent implements OnInit {
 
   specificCard(value: any){
     this.specificUrl = "https://api.pokemontcg.io/v1/cards/" + value;
+    this.sharedata.changeMessage(this.specificUrl);
     console.log(this.specificUrl);
   }
 }

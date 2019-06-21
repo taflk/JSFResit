@@ -13,6 +13,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { FooterComponent } from './components/footer/footer.component';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
 import { FetchapiService } from './services/fetchapi.service';
+import { SharedataService } from './services/sharedata.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,10 @@ import { FetchapiService } from './services/fetchapi.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [FetchapiService],
+  providers: [
+    FetchapiService,
+    SharedataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

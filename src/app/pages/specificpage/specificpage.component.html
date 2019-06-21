@@ -1,3 +1,33 @@
-<p>
-  specificpage works!
-</p>
+<div class="[ container ]">
+    <div class="[ row ]">
+      <div *ngIf="specificCard" class="[ col-lg-12 ]">
+        <div class="[ pokemoncards ]">
+          <h2>{{ specificCard.name }}</h2>
+          <img src="{{ specificCard.imageUrl }}" class="[ pokemoncards__img ]"><br>
+          <button class="[ pokemoncards__button ]" (click)="openReadMore()">Read More</button>
+          <div *ngIf="readMore">
+            <ul>
+              <li *ngIf="specificCard.id"><strong>ID:</strong> {{ specificCard.id }}</li>
+              <li *ngIf="specificCard.nationalPokedexNumber"><strong>National Pokedex Number:</strong> {{ specificCard.nationalPokedexNumber }}</li>
+              <li *ngIf="specificCard.types"><strong>Type:</strong> {{ specificCard.types }}</li>
+              <li *ngIf="specificCard.supertype"><strong>Supertype:</strong> {{ specificCard.supertype }}</li>
+              <li *ngIf="specificCard.subtype"><strong>Subtype:</strong> {{ specificCard.subtype }}</li>
+              <li *ngIf="specificCard.hp"><strong>HP:</strong> {{ specificCard.hp }}</li>
+              <li *ngIf="specificCard.retreatCost"><strong>Retreat Cost:</strong> {{ specificCard.retreatCost }}</li>
+              <li *ngIf="specificCard.convertedRetreatCost"><strong>Converted Retreat Cost:</strong> {{ specificCard.convertedRetreatCost }}</li>
+              <li *ngIf="specificCard.number"><strong>Number :</strong> {{ specificCard.number }}</li>
+              <li *ngIf="specificCard.artist"><strong>Artist:</strong> {{ specificCard.artist }}</li>
+              <li *ngIf="specificCard.rarity"><strong>Rarity:</strong> {{ specificCard.rarity }}</li>
+              <li *ngIf="specificCard.series"><strong>Series:</strong> {{ specificCard.series }}</li>
+              <li *ngIf="specificCard.set"><strong>Set:</strong> {{ specificCard.set }}</li>
+              <li *ngIf="specificCard.setCode"><strong>Set Code:</strong> {{ specificCard.setCode }}</li>
+              <li *ngIf="specificCard.attacks"><strong>Attacks:</strong> attacks {{ specificCard.attacks.cost }}</li>
+              <li *ngIf="specificCard.weaknesses"><strong>Weaknesses: </strong>{{ specificCard.weaknesses }}</li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
