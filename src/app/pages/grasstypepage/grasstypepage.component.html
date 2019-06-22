@@ -1,3 +1,10 @@
-<p>
-  grasstypepage works!
-</p>
+<div class="[ container ]">
+    <div class="[ row ]">
+      <div *ngFor="let pokemon of grassCards" class="[ col-lg-4 ]">
+        <div class="[ pokemoncards ]">
+          <img src="{{ pokemon.imageUrl }}" class="[ pokemoncards__img ]"><br>
+          <button class="[ pokemoncards__button ]" (click)="specificCard(pokemon.id)" routerLink="/specificpage">More info</button>
+        </div>
+      </div>
+    </div>
+  </div>
