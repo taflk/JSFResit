@@ -1,11 +1,11 @@
-<div class="[ container ]">
+<div class="[ container ]" style="text-align: center;">
     <div class="[ row ]">
       <div *ngIf="specificCard" class="[ col-lg-12 ]">
         <div class="[ pokemoncards ]">
           <h2>{{ specificCard.name }}</h2>
           <img src="{{ specificCard.imageUrl }}" class="[ pokemoncards__img ]"><br>
           <button class="[ pokemoncards__button ]" (click)="openReadMore()">Read More</button>
-          <div *ngIf="readMore">
+          <div *ngIf="readMore" style="text-align: left;">
             <ul>
               <li *ngIf="specificCard.id"><strong>ID:</strong> {{ specificCard.id }}</li>
               <li *ngIf="specificCard.nationalPokedexNumber"><strong>National Pokedex Number:</strong> {{ specificCard.nationalPokedexNumber }}</li>
