@@ -4,8 +4,12 @@
 }
 
 .pokemoncards {
-  width: 100%;
+  max-width: 240px;
   text-align: center;
+
+  &__img {
+    max-width: 240px;
+  }
 
   ul {
     list-style: none;
