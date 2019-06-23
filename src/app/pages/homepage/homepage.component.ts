@@ -11,6 +11,7 @@ export class HomepageComponent implements OnInit {
 
   private apiUrl = "https://api.pokemontcg.io/v1/cards?setCode=base1";
   specificUrl: string;
+  pokemons: any;
   pokemonCards: Array<any>;
   filteredCards: Array<any>;
   message: string;
@@ -20,31 +21,32 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     this.fetchApiService.getPokemons(this.apiUrl)
       .subscribe(data => {
-        this.pokemonCards = data.cards;
-        this.filteredCards = data.cards;
+        this.pokemons = data;
+        this.pokemonCards = this.pokemons.cards;
+        this.filteredCards = this.pokemons.cards;
       });
 
     this.sharedata.currentMessage.subscribe(message => this.message = message)
   }
 
   keyPress(event: any) {
-    // this.pokemonCards = this.filteredCards.filter(str => {
-    //   return str.name.toLowerCase().includes(event.target.value);
-    // })
+    this.pokemonCards = this.filteredCards.filter(str => {
+      return str.name.toLowerCase().includes(event.target.value);
+    })
     console.log(this.pokemonCards);
   }
 
-  showCards(value: any){
-    event.preventDefault();
-    this.pokemonCards = this.filteredCards.filter(str => {
-      return str.name.toLowerCase().includes(value);
-    })
-    console.log(value)
-  }
+  // showCards(value: any){
+  //   event.preventDefault();
+  //   this.pokemonCards = this.filteredCards.filter(str => {
+  //     return str.name.toLowerCase().includes(value);
+  //   })
+  //   console.log(value)
+  // }
 
-  specificCard(value: any){
-    this.specificUrl = "https://api.pokemontcg.io/v1/cards/" + value;
-    this.sharedata.changeMessage(this.specificUrl);
-    console.log(this.specificUrl);
-  }
+  // specificCard(value: any){
+  //   this.specificUrl = "https://api.pokemontcg.io/v1/cards/" + value;
+  //   this.sharedata.changeMessage(this.specificUrl);
+  //   console.log(this.specificUrl);
+  // }
 }

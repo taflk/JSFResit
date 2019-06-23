@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
 import { FetchapiService } from './services/fetchapi.service';
 import { SharedataService } from './services/sharedata.service';
+import { PokemoncardComponent } from './components/pokemoncard/pokemoncard.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SharedataService } from './services/sharedata.service';
     HeaderComponent,
     NavigationComponent,
     FooterComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    PokemoncardComponent
   ],
   imports: [
     BrowserModule,

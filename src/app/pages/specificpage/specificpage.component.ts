@@ -16,12 +16,12 @@ export class SpecificpageComponent implements OnInit {
   constructor(private sharedata: SharedataService, private fetchApiService: FetchapiService ) { }
 
   ngOnInit() {
-    this.sharedata.currentMessage.subscribe(message => this.apiUrl = message)
+    // this.sharedata.currentMessage.subscribe(message => this.apiUrl = message)
 
-    this.fetchApiService.getPokemons(this.apiUrl)
-      .subscribe(data => {
-        this.specificCard = data.card;
-      });
+    // this.fetchApiService.getPokemons(this.apiUrl)
+    //   .subscribe(data => {
+    //     this.specificCard = data.card;
+    //   });
   };
 
   openReadMore(){
