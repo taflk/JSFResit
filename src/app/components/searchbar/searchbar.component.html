@@ -1,6 +1,12 @@
 <div class="[ search ]">
   <form (keyup)="onKeyPress($event)">
-    <input #pokemonSearch type="text" Placeholder="Search for pokemon" class="[ search__input ]" >
-    <button type="submit" class="[ search__button ]" (click)="onButtonClick(pokemonSearch.value)">Go</button>
+    <input #pokemonSearch type="text" 
+           Placeholder="Search for pokemon" 
+           class="[ search__input ]"
+           >
+    <button type="submit" 
+            class="[ search__button ]" 
+            (click)="onButtonClick(pokemonSearch.value)">Go
+    </button><br>
   </form>
 </div>

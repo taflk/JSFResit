@@ -1,8 +1,23 @@
-<app-searchbar (emitSearchStringButton)="findSpecificCard($event)" (emitSearchStringKey)="keyPress($event)"></app-searchbar>
+<app-searchbar (emitSearchStringButton)="findSpecificCard($event)" 
+               (emitSearchStringKey)="keyPress($event)"
+>
+
+
+</app-searchbar>
+
+<div *ngIf="inputFilled">
+  <app-typeahead *ngFor="let pokemon of pokemonCards"
+                [pokemon]="pokemon">
+  </app-typeahead>
+</div>
+
 
 <div class="[ container ]">
   <div class="[ row ]">
-    <app-pokemoncard *ngFor="let pokemon of pokemonCards" [pokemon]="pokemon" class="[ col-lg-4 ]"></app-pokemoncard>
+    <app-pokemoncard *ngFor="let pokemon of pokemonCards" 
+                     [pokemon]="pokemon" 
+                     class="[ col-lg-4 ]">
+    </app-pokemoncard>
   </div>
 </div>
 

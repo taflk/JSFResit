@@ -1,0 +1,20 @@
+.col {
+  margin: 0 auto;
+}
+
+.pokemoncards {
+  width: 100%;
+  text-align: center;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__button {
+    width: 100%;
+    background-color: darken(#FFDE00, 2.2%);
+    padding: 5px 0;
+    border: none;
+  }
+}

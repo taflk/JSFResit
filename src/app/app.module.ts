@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgxTypeaheadModule } from 'ngx-typeahead';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,8 @@ import { FetchapiService } from './services/fetchapi.service';
 import { SharedataService } from './services/sharedata.service';
 import { PokemoncardComponent } from './components/pokemoncard/pokemoncard.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { TypeaheadComponent } from './components/typeahead/typeahead.component';
+import { ReadmoreComponent } from './components/readmore/readmore.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +33,16 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
     FooterComponent,
     PagenotfoundComponent,
     PokemoncardComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    TypeaheadComponent,
+    ReadmoreComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxTypeaheadModule,
   ],
   providers: [
     FetchapiService,

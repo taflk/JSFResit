@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedataService } from '../../services/sharedata.service';
 import { FetchapiService } from '../../services/fetchapi.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-specificpage',
@@ -9,23 +9,25 @@ import { FetchapiService } from '../../services/fetchapi.service';
 })
 export class SpecificpageComponent implements OnInit {
 
-  apiUrl: string;
+  private apiUrl = "https://api.pokemontcg.io/v1/cards/";
+  pokemons: any;
   specificCard: Array<any>;
   readMore: boolean = false;
+  id: string;
 
-  constructor(private sharedata: SharedataService, private fetchApiService: FetchapiService ) { }
+  constructor( private fetchApiService: FetchapiService, private route: ActivatedRoute ) { }
 
   ngOnInit() {
-    // this.sharedata.currentMessage.subscribe(message => this.apiUrl = message)
+    this.id = this.route.snapshot.paramMap.get('id');
 
-    // this.fetchApiService.getPokemons(this.apiUrl)
-    //   .subscribe(data => {
-    //     this.specificCard = data.card;
-    //   });
+    this.fetchApiService.getPokemons(this.apiUrl + this.id)
+      .subscribe(data => {
+           this.pokemons = data;
+           this.specificCard = this.pokemons.card;
+      });
   };
 
   openReadMore(){
     this.readMore = !this.readMore;
   }
-
 }

@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'home', component: HomepageComponent },
   { path: 'grasstypes', component: GrasstypepageComponent },
   { path: 'contact', component: ContactpageComponent },
-  { path: 'specificpage', component: SpecificpageComponent },
+  { path: 'specificpage/:id', component: SpecificpageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PagenotfoundComponent },
 

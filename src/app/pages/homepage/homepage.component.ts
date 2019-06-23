@@ -14,6 +14,7 @@ export class HomepageComponent implements OnInit {
   pokemons: any;
   pokemonCards: Array<any>;
   filteredCards: Array<any>;
+  inputFilled: boolean; false;
   message: string;
 
   constructor(private fetchApiService: FetchapiService, private sharedata: SharedataService) { }
@@ -30,6 +31,13 @@ export class HomepageComponent implements OnInit {
   }
 
   keyPress(searchstring: any) {
+    if(searchstring != '') {
+      this.inputFilled = true;
+      console.log("a");
+    } else {
+      this.inputFilled = false;
+      console.log("b");
+    }
     this.pokemonCards = this.filteredCards.filter(str => {
       return str.name.toLowerCase().includes(searchstring);
     })

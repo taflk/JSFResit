@@ -10,6 +10,7 @@ import { SharedataService } from '../../services/sharedata.service';
 export class GrasstypepageComponent implements OnInit {
 
   private apiUrl = "https://api.pokemontcg.io/v1/cards?setCode=base1";
+  pokemons: any;
   pokemonCards: Array<any>;
   grassCards: Array<any> = [];
   specificUrl: string;
@@ -17,31 +18,27 @@ export class GrasstypepageComponent implements OnInit {
   constructor(private fetchApiService: FetchapiService, private sharedata: SharedataService ) { }
 
   ngOnInit() {
-    // this.fetchApiService.getPokemons(this.apiUrl)
-    //   .subscribe(data => {
-    //     this.pokemonCards = data.cards;
-    //     this.populateArray();
-    //     console.log(this.grassCards);
-    //   }) 
+    this.fetchApiService.getPokemons(this.apiUrl)
+      .subscribe(data => {
+        this.pokemons = data;
+        this.pokemonCards = this.pokemons.cards;
+        this.populateArray();
+      }) 
   }
 
-  checkType(){
-
+  populateArray(){
+    for(let i = 0; i < this.pokemonCards.length; i++) {
+      if(this.pokemonCards[i].types){
+        if(this.pokemonCards[i].types[0] === "Grass") {
+          this.grassCards.push(this.pokemonCards[i]);
+        }
+      };
+    }
   }
 
-  // populateArray(){
-  //   for(let i = 0; i < this.pokemonCards.length; i++) {
-  //     if(this.pokemonCards[i].types){
-  //       if(this.pokemonCards[i].types[0] === "Grass") {
-  //         this.grassCards.push(this.pokemonCards[i]);
-  //       }
-  //     };
-  //   }
-  // }
-
-  // specificCard(value: any){
-  //   this.specificUrl = "https://api.pokemontcg.io/v1/cards/" + value;
-  //   this.sharedata.changeMessage(this.specificUrl);
-  //   console.log(this.specificUrl);
-  // }
+  specificCard(value: any){
+    this.specificUrl = "https://api.pokemontcg.io/v1/cards/" + value;
+    this.sharedata.changeMessage(this.specificUrl);
+    console.log(this.specificUrl);
+  }
 }

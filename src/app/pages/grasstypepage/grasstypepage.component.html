@@ -1,4 +1,4 @@
-<div class="[ container ]" style="text-align: center;">
+<!-- <div class="[ container ]" style="text-align: center;">
     <div class="[ row ]">
       <div *ngFor="let pokemon of grassCards" class="[ col-lg-4 ]">
         <div class="[ pokemoncards ]">
@@ -7,4 +7,10 @@
         </div>
       </div>
     </div>
+  </div> -->
+
+<div class="[ container ]">
+  <div class="[ row ]">
+    <app-pokemoncard *ngFor="let pokemon of grassCards" [pokemon]="pokemon" class="[ col-lg-4 ]"></app-pokemoncard>
   </div>
+</div>

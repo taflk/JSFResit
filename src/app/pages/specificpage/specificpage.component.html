@@ -1,12 +1,12 @@
-<!-- <div class="[ container ]">
+<div class="[ container ]">
     <div class="[ row ]">
-      <div *ngIf="specificCard" class="[ col-lg-12 ]">
+      <div *ngIf="specificCard">
         <div class="[ pokemoncards ]">
-          <h2>{{ specificCard.name }}</h2>
+          <h4>{{ specificCard.name }}</h4>
           <img src="{{ specificCard.imageUrl }}" class="[ pokemoncards__img ]"><br>
           <button class="[ pokemoncards__button ]" (click)="openReadMore()">Read More</button>
           <div *ngIf="readMore" style="text-align: left;">
-            <ul>
+            <!-- <ul>
               <li *ngIf="specificCard.id"><strong>ID:</strong> {{ specificCard.id }}</li>
               <li *ngIf="specificCard.nationalPokedexNumber"><strong>National Pokedex Number:</strong> {{ specificCard.nationalPokedexNumber }}</li>
               <li *ngIf="specificCard.types"><strong>Type:</strong> {{ specificCard.types }}</li>
@@ -23,11 +23,11 @@
               <li *ngIf="specificCard.setCode"><strong>Set Code:</strong> {{ specificCard.setCode }}</li>
               <li *ngIf="specificCard.attacks"><strong>Attacks:</strong> attacks {{ specificCard.attacks.cost }}</li>
               <li *ngIf="specificCard.weaknesses"><strong>Weaknesses: </strong>{{ specificCard.weaknesses }}</li>
-
-            </ul>
+            </ul> -->
+            <app-readmore [specificCard]="specificCard"></app-readmore>
           </div>
         </div>
       </div>
     </div>
   </div>
-   -->
+  

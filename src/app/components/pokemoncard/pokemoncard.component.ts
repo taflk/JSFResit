@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-pokemoncard',
@@ -7,10 +7,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PokemoncardComponent implements OnInit {
   @Input() pokemon;
+  @Output() emitId = new EventEmitter;
+  id: string;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  sendId(value: any) {
+    this.id = value;
+    this.emitId.emit(this.id);
+  }
 }
