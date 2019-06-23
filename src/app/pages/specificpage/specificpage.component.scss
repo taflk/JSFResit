@@ -1,5 +1,6 @@
-.col {
-  margin: 0 auto;
+.wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .pokemoncards {
@@ -16,5 +17,6 @@
     background-color: darken(#FFDE00, 2.2%);
     padding: 5px 0;
     border: none;
+    margin-bottom: 20px;
   }
 }

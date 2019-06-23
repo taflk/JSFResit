@@ -13,6 +13,20 @@
   <li *ngIf="specificCard.series"><strong>Series:</strong> {{ specificCard.series }}</li>
   <li *ngIf="specificCard.set"><strong>Set:</strong> {{ specificCard.set }}</li>
   <li *ngIf="specificCard.setCode"><strong>Set Code:</strong> {{ specificCard.setCode }}</li>
-  <li *ngIf="specificCard.attacks"><strong>Attacks:</strong> attacks {{ specificCard.attacks.cost }}</li>
-  <li *ngIf="specificCard.weaknesses"><strong>Weaknesses: </strong>{{ specificCard.weaknesses }}</li>
+  <li *ngIf="specificCard.attacks">
+    <strong>Attacks:</strong>
+    <ul *ngFor="let attack of specificCard.attacks">
+      <li class="[ padding-left ]"><strong>- Name: </strong>{{ attack.name }}</li>
+      <li class="[ padding-left ]"><strong>- Cost: </strong>{{ attack.cost }}</li>
+      <li class="[ padding-left ]"><strong>- Damage: </strong>{{ attack.damage }}</li>
+
+    </ul>
+  </li>
+  <li *ngIf="specificCard.weaknesses">
+    <strong>Weaknesses: </strong>
+    <ul *ngFor="let weakness of specificCard.weaknesses">
+      <li class="[ padding-left ]"><strong>- Type: </strong>{{ weakness.type }}</li>
+      <li class="[ padding-left ]"><strong>- Value: </strong>{{ weakness.value }}</li>
+    </ul>
+  </li>
 </ul>
