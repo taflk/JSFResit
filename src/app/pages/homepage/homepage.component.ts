@@ -29,24 +29,15 @@ export class HomepageComponent implements OnInit {
     this.sharedata.currentMessage.subscribe(message => this.message = message)
   }
 
-  keyPress(event: any) {
+  keyPress(searchstring: any) {
     this.pokemonCards = this.filteredCards.filter(str => {
-      return str.name.toLowerCase().includes(event.target.value);
+      return str.name.toLowerCase().includes(searchstring);
     })
-    console.log(this.pokemonCards);
   }
 
-  // showCards(value: any){
-  //   event.preventDefault();
-  //   this.pokemonCards = this.filteredCards.filter(str => {
-  //     return str.name.toLowerCase().includes(value);
-  //   })
-  //   console.log(value)
-  // }
-
-  // specificCard(value: any){
-  //   this.specificUrl = "https://api.pokemontcg.io/v1/cards/" + value;
-  //   this.sharedata.changeMessage(this.specificUrl);
-  //   console.log(this.specificUrl);
-  // }
+  findSpecificCard(searchstring: any){
+    this.pokemonCards = this.filteredCards.filter(str => {
+    return str.name.toLowerCase().includes(searchstring);
+  })
+}
 }
